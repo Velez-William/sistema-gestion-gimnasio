@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <!-- ================= CONFIGURACIÓN BÁSICA ================= -->
+    <meta charset="UTF-8">
+    <title>Eliminar Miembro</title>
+
+    <!-- ================= BOOTSTRAP ================= -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- ================= FONT AWESOME ================= -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- ================= ESTILOS PERSONALIZADOS ================= -->
+    <style>
+
+        /* ===== FONDO GENERAL ===== */
+        body{
+            min-height: 100vh;
+
+            background:
+                linear-gradient(rgba(0,0,0,.70), rgba(0,0,0,.70)),
+                url("https://inticap.com/portal/images/sistema/facturacion/logos/Sistema_Gimnasio.png")
+                no-repeat center center fixed;
+
+            background-size: cover;
+        }
+
+        /* ===== TARJETA DE CONFIRMACIÓN ===== */
+        .confirm-card{
+            max-width: 500px;
+            width: 100%;
+            border-radius: 15px;
+        }
+
+    </style>
+
+</head>
+
+<body class="d-flex justify-content-center align-items-center">
+
+<!-- ================= TARJETA CENTRAL ================= -->
+<div class="card shadow-lg p-5 text-center confirm-card">
+
+    <!-- ===== ÍCONO TRISTE / ALERTA ===== -->
+    <div class="mb-3">
+        <i class="fa-regular fa-face-sad-tear fa-4x text-danger"></i>
+    </div>
+
+    <!-- ===== MENSAJE ===== -->
+    <h3 class="mb-3 fw-bold">
+        ¿Estás seguro?
+    </h3>
+
+    <p class="fs-5 text-muted">
+        Esta acción <strong>no se puede deshacer</strong>.
+    </p>
+
+    <p class="fs-5">
+        Se eliminará al miembro:
+        <br>
+        <strong class="text-danger">
+            {{ miembro.nombre }} {{ miembro.apellido }}
+        </strong>
+    </p>
+
+    <!-- ================= FORMULARIO ================= -->
+    <form method="POST" class="mt-4">
+        {% csrf_token %}
+
+        <div class="d-flex gap-3 justify-content-center">
+
+            <!-- Confirmar eliminación -->
+            <button class="btn btn-danger btn-lg px-4">
+                <i class="fa fa-trash"></i> Sí, eliminar
+            </button>
+
+            <!-- Cancelar -->
+            <a href="{% url 'inicio' %}" class="btn btn-secondary btn-lg px-4">
+                <i class="fa fa-xmark"></i> Cancelar
+            </a>
+
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>

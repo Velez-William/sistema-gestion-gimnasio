@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva Clase</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* Fondo general */
+        body{
+            background:
+                linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+                url("https://inticap.com/portal/images/sistema/facturacion/logos/Sistema_Gimnasio.png")
+                no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Tarjeta del formulario (MUY ANCHA) */
+        .form-card{
+            width: 30%;              /* casi toda la pantalla */
+            max-width: 1400px;       /* límite grande REAL */
+            background: #f0fdfa;
+            border: 5px solid #20c997;
+            border-radius: 25px;
+            padding: 40px;
+        }
+
+        /* Etiquetas */
+        .form-label{
+            font-weight: bold;
+            text-align: center;
+            display: block;
+        }
+
+        /* Inputs centrados */
+        input, select, textarea{
+            text-align: center;
+        }
+
+        textarea{
+            min-height: 180px;
+            resize: vertical;
+        }
+    </style>
+</head>
+
+<body class="d-flex justify-content-center align-items-center min-vh-100">
+
+<div class="form-card shadow-lg">
+
+    <!-- Título -->
+    <h2 class="text-center mb-4 text-success">
+        <i class="fa-solid fa-dumbbell"></i> Registro de Nueva Clase
+    </h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <!-- Campos normales -->
+        {% for field in formulario %}
+            {% if field.name != "descripcion" %}
+                <div class="mb-4 text-center">
+                    <label class="form-label">{{ field.label }}</label>
+                    <div class="d-flex justify-content-center">
+                        <div class="w-75">
+                            {{ field }}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <!-- Descripción al final -->
+        {% for field in formulario %}
+            {% if field.name == "descripcion" %}
+                <div class="mb-4 text-center">
+                    <label class="form-label">{{ field.label }}</label>
+                    <div class="d-flex justify-content-center">
+                        <div class="w-75">
+                            {{ field }}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <!-- Botones -->
+        <div class="d-flex justify-content-center gap-3 mt-4">
+            <button class="btn btn-success px-5">
+                <i class="fa fa-save"></i> Guardar
+            </button>
+            <a href="{% url 'inicio' %}" class="btn btn-outline-secondary px-5">
+                Volver
+            </a>
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>

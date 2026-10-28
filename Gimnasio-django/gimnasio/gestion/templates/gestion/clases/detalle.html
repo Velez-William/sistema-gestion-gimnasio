@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Título de la pestaña -->
+    <title>Detalle Clase</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* ===============================
+           FONDO DE LA PÁGINA
+           =============================== */
+        body{
+            background:
+                linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+                url("https://inticap.com/portal/images/sistema/facturacion/logos/Sistema_Gimnasio.png")
+                no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* ===============================
+           TARJETA DE DETALLE
+           =============================== */
+        .detail-card{
+            max-width: 600px;
+            margin: auto;
+            margin-top: 80px;
+            border-radius: 20px;
+            border-top: 6px solid #0d6efd; /* AZUL */
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- CONTENEDOR PRINCIPAL -->
+<div class="card detail-card shadow-lg p-4">
+
+    <!-- TÍTULO -->
+    <h4 class="text-primary text-center mb-4">
+        <i class="fa fa-dumbbell"></i> Detalle de la Clase
+    </h4>
+
+    <!-- LISTA DE INFORMACIÓN -->
+    <ul class="list-group list-group-flush">
+
+        <li class="list-group-item">
+            <strong>Nombre de la Clase:</strong> {{clase.nombre_clase }}
+        </li>
+
+        <li class="list-group-item">
+            <strong>Instructor:</strong> {{ clase.instructor }}
+        </li>
+
+        <li class="list-group-item">
+            <strong>Horario:</strong> {{ clase.horario }}
+        </li>
+
+        <li class="list-group-item">
+            <strong>Capacidad:</strong> {{ clase.capacidad_maxima}}
+        </li>
+
+        <li class="list-group-item">
+            <strong>Duración:</strong> {{ clase.duracion_minutos}}
+        </li>
+
+        <li class="list-group-item">
+            <strong>Estado:</strong> {{ clase.estado_activo}}
+        </li>
+
+        <li class="list-group-item">
+            <strong>Miembro:</strong> {{ clase.miembro }}
+        </li>
+
+        <li class="list-group-item">
+            <strong>Descripción:</strong> {{clase.descripcion }}
+        </li>
+    </ul>
+
+    <!-- BOTÓN VOLVER -->
+    <div class="text-center mt-4">
+        <a href="{% url 'inicio' %}" class="btn btn-outline-primary px-4">
+            ⬅ Volver
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
