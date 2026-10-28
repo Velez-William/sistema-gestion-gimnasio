@@ -4,7 +4,7 @@ Aplicación web para administrar los miembros y las clases de un gimnasio, desar
 
 ## Funcionalidades
 
-- Página de inicio del sistema
+- Página de inicio con el listado de miembros y clases
 - Gestión de **miembros**: crear, ver detalle, editar y eliminar
 - Gestión de **clases**: crear, ver detalle, editar y eliminar
 
@@ -17,7 +17,7 @@ Aplicación web para administrar los miembros y las clases de un gimnasio, desar
 
 ## Captura de pantalla
 
-![Sistema de Gestión de Gimnasio](Gimnasio-django/static/img/sistema_gimnasio.png)
+
 
 ## Cómo ejecutarlo
 
