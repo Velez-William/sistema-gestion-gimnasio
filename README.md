@@ -17,7 +17,7 @@ Aplicación web para administrar los miembros y las clases de un gimnasio, desar
 
 ## Captura de pantalla
 
-
+![Sistema de Gestión de Gimnasio](Gimnasio-django/static/img/captura_inicio.png)
 
 ## Cómo ejecutarlo
 
